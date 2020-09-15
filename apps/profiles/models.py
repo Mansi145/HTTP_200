@@ -9,30 +9,10 @@ class StudentDetail(models.Model):
     '''
     # List of courses
     BTECH = 'BTech'
-    MCA = 'MCA'
-    MBA = 'MBA'
-    MTECH = 'MTech'
-    HUMANITIES = 'Humanities'
-    ENGLISH = 'English'
-    CHEMISTRY = 'Chemistry'
-    PHYSICS = 'Physics'
-    MATHS = 'Maths'
-    ADMINISTRATION = 'Administration'
-    MAINTENANCE = 'Maintenance'
-    OTHERS = 'OTHER'
+    Pharmacy = 'Pharmacy'
     COURSE = (
         (BTECH, 'BTech'),
-        (MCA, 'MCA'),
-        (MBA, 'MBA'),
-        (MTECH, 'MTech'),
-        (HUMANITIES, 'Humanities'),
-        (ENGLISH, 'English'),
-        (CHEMISTRY, 'Chemistry'),
-        (PHYSICS, 'Physics'),
-        (MATHS, 'Maths'),
-        (ADMINISTRATION, 'Administration'),
-        (MAINTENANCE, 'Maintenance'),
-        (OTHERS, 'Others'),
+        (Pharmacy, 'Pharmacy'),
     )
     # List of branches
     CSE = 'CSE'
@@ -41,9 +21,7 @@ class StudentDetail(models.Model):
     ECE = 'ECE'
     EEE = 'EEE'
     CE = 'CE'
-    IC = 'IC'
     ME = 'ME'
-    MT = 'MT'
 
     BRANCH = (
         ('AllBranches', 'None'),
@@ -53,9 +31,7 @@ class StudentDetail(models.Model):
         (ECE, 'Electronics and Communication Engineering'),
         (EEE, 'Electrical and Electronics Engineering'),
         (CE, 'Civil Engineering'),
-        (IC, 'Instrumentation and Control Engineering'),
         (ME, 'Mechanical Engineering'),
-        (MT, 'Manufacturing Technology'),
     )
 
     YEAR = (
@@ -77,11 +53,7 @@ class StudentDetail(models.Model):
         ('EE2', 'EE2'),
         ('EEE1', 'EEE1'),
         ('CE1', 'CE1'),
-        ('CE2', 'CE2'),
-        ('IC1', 'IC1'),
-        ('IC2', 'IC2'),
-        ('MT1', 'MT1'),
-        ('MT2', 'MT2'),
+        ('CE2', 'CE2'),\
         ('ME1', 'ME1'),
         ('ME2', 'ME2'),
         ('ME3', 'ME3'),

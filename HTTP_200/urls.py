@@ -43,6 +43,7 @@ urlpatterns = [
     url(r'^api/profiles/', include("profiles.api.urls")),
     url(r'^api/notices/', include("notices.api.urls")),
     url(r'^api/notifications/', include("notifications.api.urls")),
+    url(r'^api/questionpapers/', include("questionPapers.urls")),
 ]
 
 # For development environment
