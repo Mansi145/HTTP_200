@@ -8,7 +8,7 @@ class Semester(models.Model):
     number = models.PositiveSmallIntegerField()
 
     def __str__(self):
-        return self.name
+        return str(self.number)
 
 
 class Subject(models.Model):
@@ -25,6 +25,6 @@ class QuestionPaper(models.Model):
     questionPaperFile = models.FileField(upload_to="attachments", null=False)
     forSubject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     ofYear_regex = RegexValidator(
-        regex=r'^d{4}[-]\d{4}',
+        regex=r'^\d{4}[-]\d{4}',
         message="Ex - 2020-2021")
     ofYear = models.CharField(validators=[ofYear_regex], max_length=9)
