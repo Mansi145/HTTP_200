@@ -4,7 +4,26 @@ from django.core.validators import RegexValidator
 # Create your models here.
 
 
-class Semester(models.Model):
+class Course(models.Model):
+    courseCode = models.CharField(max_length=10)
+    courseFullName = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.courseCode
+
+
+class Branch(models.Model):
+
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    deptCode = models.CharField(max_length=10)
+    deptFullName = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.deptCode
+
+
+class Year(models.Model):
+
     number = models.PositiveSmallIntegerField()
 
     def __str__(self):
@@ -12,11 +31,14 @@ class Semester(models.Model):
 
 
 class Subject(models.Model):
-    semNum = models.ForeignKey(Semester, on_delete=models.CASCADE)
-    name = models.CharField(max_length=30)
+
+    yearNum = models.ForeignKey(Year, on_delete=models.CASCADE)
+    deptName = models.ForeignKey(Branch, on_delete=models.CASCADE)
+    subName = models.CharField(max_length=30)
+    subCode = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.name
+        return self.subName
 
 
 class QuestionPaper(models.Model):
