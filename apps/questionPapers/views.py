@@ -15,14 +15,18 @@ class upload_question_paper_view(generics.CreateAPIView):
     serializer_class = serializers.QuestionUploadSerializer
 
 
-# class view_courses(generics.ListAPIView):
+class view_subjects(generics.ListAPIView):
 
-#     def get(self, request):
-#         student_course = StudentDetail.objects.get(course=self.course)
-#         student_branch = StudentDetail.objects.get(branch=self.branch)
-#         student_year = StudentDetail.objects.get(year=self.year)
-        # subjects_view = Subject.objects.filter(course=student_course).filter(branch=student_branch).filter(year=student_year)
-        # return Response(subjects_view.data)
+    def get(self, request):
+        student_id = self.request.user.studentdetail
+        student_dept = student_id.branch
+        student_year = student_id.year
+        subjects_view = Subject.objects.filter(deptName=student_dept).filter(yearNum=student_year)
+        return Response(subjects_view.data)
+
+
+        # student_dept = StudentDetail.objects.get(branch=self.request.branch)
+        # student_year = StudentDetail.objects.get(year=self.year)
 
 
 # class view_question_paper(APIView):
